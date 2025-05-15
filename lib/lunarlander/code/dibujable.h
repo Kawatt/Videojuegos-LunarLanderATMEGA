@@ -22,6 +22,16 @@ struct Punto{
     uint8_t x, y;
 };
 
+/** 
+ * @brief Estructura que representa un punto en el plano cartesiano
+ * 
+ * @param x Coordenada x del punto
+ * @param y Coordenada y del punto
+ */
+struct PuntoFloat{
+    float x, y;
+};
+
 /**
  * @brief Estructura que representa una union entre dos puntos
  * 

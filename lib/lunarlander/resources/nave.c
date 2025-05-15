@@ -4,7 +4,7 @@
 
 const struct DibujableConstante Nave_Base = {
     CENTRO_CONST_NAVE,
-    (struct Punto[]){
+    (struct PuntoFloat[]){
         {0, ALTURA_NAVE}, {1, ALTURA_NAVE}, {2, ALTURA_NAVE}, {3, 12}, {3, 10}, // 0-4
         {6, 10}, {4, 8}, {4, 2}, {6, 0}, {12, 0}, // 5-9
         {14, 2}, {14, 8}, {12, 10}, {15, 10}, {15, 12}, // 10-14

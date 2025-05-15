@@ -137,16 +137,16 @@ int main() {
             }
         }
         if (estado_actual == ESTADO_JUEGO) {
-            /*if ((ADCSRA & _BV(ADSC)) == 0) {	// If ADC conversion has finished
+            if ((ADCSRA & _BV(ADSC)) == 0) {	// If ADC conversion has finished
                 ADoutTemp = ADCW;			// Read out ADC value	
                 
-                Langle =  ADoutTemp >> 4; //ADoutTemp >> 2;
+                //Langle = ADoutTemp >> 4; //ADoutTemp >> 2;
 
                 // 64 angles allowed
                 
                 ADCSRA |= _BV(ADSC);	// Start new ADC conversion 
             }
-            if (GetAsyncKeyState(TECLA_ROTAR_IZDA) & 0x8000) pulsar_tecla(IZQUIERDA);
+            /*if (GetAsyncKeyState(TECLA_ROTAR_IZDA) & 0x8000) pulsar_tecla(IZQUIERDA);
             if (GetAsyncKeyState(TECLA_ROTAR_DCHA) & 0x8000) pulsar_tecla(DERECHA);*/
         }
         

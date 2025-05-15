@@ -2,6 +2,7 @@
 #define GESTOR_COLISIONES_H
 
 #include "dibujable.h"
+#include <Arduino.h>
 
 /**
  * @brief Funcion que comprueba si existe colision entre las aristas de dos
