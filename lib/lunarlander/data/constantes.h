@@ -12,8 +12,8 @@ extern const float COS_TABLA[64];
 
 extern const float valor_inicial_nave_x;
 
-#define tamano_inicial_pantalla_X (uint8_t)255
-#define tamano_inicial_pantalla_Y (uint8_t)255
+#define tamano_inicial_pantalla_X 255
+#define tamano_inicial_pantalla_Y 255
 #define anchura_minima_ventana 512
 #define altura_minima_ventana 384
 #define combustible_motor 1
