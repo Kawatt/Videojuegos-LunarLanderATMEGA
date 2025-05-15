@@ -25,7 +25,6 @@
 #define aterrizaje_perfecto_rot 10
 #define aterrizaje_brusco_rot 20
 
-#define entrada_modo_zoom_nave 1
 #define entrada_modo_zoom_terreno 2.2
 
 #define MARCO_DESPLAZAMIENTO 150
@@ -52,7 +51,7 @@ uint8_t nave_ha_entrado_a_centro_terreno = 1;
 // 1 si el terreno_0 auxiliar esta a la izquierda, 0 si el terreno_0 auxiliar esta a la derecha
 static uint8_t terreno_auxiliar_en_izda = 1;
 // 0 si el auxiliar es terreno_0, 1 si el auxiliar es terreno_1 
-int terreno_auxiliar = 1;
+uint8_t terreno_auxiliar = 1;
 
 // Variable para contabilizar la subida de la nave y controlar el desplazamiento
 // vertical del terreno_0
@@ -217,7 +216,6 @@ void dibujar_escena(){
 	dibujar_cabecera();
 	dibujar_superficie_lunar(terreno_0, plataformas_0, numero_plataformas);
 	dibujar_superficie_lunar(terreno_1, plataformas_1, numero_plataformas);
-	dibujar_cielo_estrellado();
     if(estado_actual != ESTADO_ATERRIZAJE || tipo_aterrizaje != COLISION) {
 		dibujar_dibujable(nave -> objeto);	
 		switch(obtener_propulsor()){
@@ -349,7 +347,7 @@ void comprobar_si_nave_entra_a_centro_dcha(int n_terreno) {
 void activar_zoom() {	
 	posicion_nave_cuando_zoom = nave->objeto->origen;
 	escalar_terreno_partida_dado_punto(posicion_nave_cuando_zoom, entrada_modo_zoom_terreno, entrada_modo_zoom_terreno);
-	escalar_nave_partida(entrada_modo_zoom_nave, entrada_modo_zoom_nave);
+	escalar_nave_partida(1, 1);
 	traslacion_horizontal_terreno_cuando_zoom = 0;
 	pos_real_nave_al_terminar_el_zoom = (struct Punto) {0,0};
 }
@@ -392,8 +390,7 @@ void desactivar_zoom() {
 	//printf("\tDibujable colocado en posicion (%f, %f)\n", nave->objeto->origen.x, nave->objeto->origen.y);
 
 	// Deshacer el escalado de los dibujables
-	//escalar_dibujable_en_escena_dados_ejes_y_punto(nave->objeto, posicion_nave_cuando_zoom, 1/entrada_modo_zoom_nave, 1/entrada_modo_zoom_nave);
-	escalar_nave_partida(1/entrada_modo_zoom_nave, 1/entrada_modo_zoom_nave);
+	escalar_nave_partida(1, 1);
 	escalar_terreno_partida_dado_punto(posicion_nave_cuando_zoom, 1/entrada_modo_zoom_terreno, 1/entrada_modo_zoom_terreno);
 
 	struct Punto posicion_nave_despues_deshacer_zoom = nave->objeto->origen;
@@ -409,13 +406,13 @@ void desactivar_zoom_para_trasladar_terreno() {
 	trasladarDibujable(nave->objeto, (struct Punto) {0, -traslacion_dibujables_por_borde_inferior});
 
 	// Deshacer el escalado de los dibujables
-	escalar_nave_partida(1/entrada_modo_zoom_nave, 1/entrada_modo_zoom_nave);
+	escalar_nave_partida(1, 1);
 	escalar_terreno_partida_dado_punto(posicion_nave_cuando_zoom, 1/entrada_modo_zoom_terreno, 1/entrada_modo_zoom_terreno);
 }
 
 void activar_zoom_sin_cambiar_referencia() {
 	escalar_terreno_partida_dado_punto(posicion_nave_cuando_zoom, entrada_modo_zoom_terreno, entrada_modo_zoom_terreno);
-	escalar_dibujable_en_escena_dados_ejes_y_punto(nave->objeto, posicion_nave_cuando_zoom, entrada_modo_zoom_nave, entrada_modo_zoom_nave);
+	escalar_dibujable_en_escena_dados_ejes_y_punto(nave->objeto, posicion_nave_cuando_zoom, 1, 1);
 	trasladar_superficie_lunar(terreno_0, plataformas_0, numero_plataformas, (struct Punto){0, traslacion_dibujables_por_borde_inferior});
 	trasladar_superficie_lunar(terreno_1, plataformas_1, numero_plataformas, (struct Punto){0, traslacion_dibujables_por_borde_inferior});
 	trasladarDibujable(nave->objeto, (struct Punto) {0, traslacion_dibujables_por_borde_inferior});

@@ -106,37 +106,3 @@ void dibujar_superficie_lunar(struct Dibujable* terreno, struct Plataforma* plat
         }
 	}
 }
-
-
-void dibujar_punto_cielo(int x, int y) {
-    DrawLine(x, y, x+1, y);
-    DrawLine(x, y+1, x+1, y+1);
-}
-
-void dibujar_cielo_estrellado() {
-    dibujar_punto_cielo(59, 91);
-    dibujar_punto_cielo(89, 210);
-    dibujar_punto_cielo(122, 177);
-    dibujar_punto_cielo(127, 112);
-    dibujar_punto_cielo(213, 196);
-    dibujar_punto_cielo(364, 244);
-    dibujar_punto_cielo(419, 215);
-    dibujar_punto_cielo(435, 76);
-    dibujar_punto_cielo(503, 265);
-    dibujar_punto_cielo(511, 250);
-    dibujar_punto_cielo(645, 88);
-    dibujar_punto_cielo(601, 67);
-    dibujar_punto_cielo(671, 233);
-    dibujar_punto_cielo(732, 277);
-    dibujar_punto_cielo(786, 241);
-    dibujar_punto_cielo(823, 244);
-    dibujar_punto_cielo(834, 122);
-    dibujar_punto_cielo(842, 289);
-    dibujar_punto_cielo(910, 16);
-    dibujar_punto_cielo(978, 168);
-    dibujar_punto_cielo(994, 121);
-    dibujar_punto_cielo(384, 310);
-    dibujar_punto_cielo(972, 327);
-    dibujar_punto_cielo(147, 342);
-
-}

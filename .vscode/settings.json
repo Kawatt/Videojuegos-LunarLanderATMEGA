@@ -2,6 +2,7 @@
     "files.associations": {
         "variables_juego.h": "c",
         "caracteres.h": "c",
-        "dibujable.h": "c"
+        "dibujable.h": "c",
+        "transformaciones.h": "c"
     }
 }
