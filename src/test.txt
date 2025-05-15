@@ -1,0 +1,54 @@
+#include <Arduino.h>
+
+extern "C" {
+  #include "code/lunar_lander.h"
+  #include "code/palabra.h"
+  #include "resources/superficie_lunar.h"
+  #include "code/gestor_plataformas.h"
+  #include "code/variables_globales.h"
+}
+
+// put function declarations here:
+int myFunction(int, int);
+
+const int LED_PIN = 13; // LED integrado en la mayoría de placas Arduino
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(9600);
+  //int result = myFunction(SIN_TABLA[0], COS_TABLA[0]);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  for (int i = 0; i < 10; i++) {
+    int numero = TEST[i];
+    Serial.print("Número actual: ");
+    Serial.println(numero);
+
+    if (numero % 2 == 0) {
+      // Si es par, encender el LED
+      digitalWrite(LED_PIN, HIGH);
+      Serial.println("Encendiendo LED (número par)");
+    }
+
+    delay(1000); // Esperar 1000 ms
+
+    // Apagar el LED si el siguiente número es impar
+    if (i < 9 && TEST[i + 1] % 2 != 0) {
+      digitalWrite(LED_PIN, LOW);
+      Serial.println("Apagando LED (siguiente número impar)");
+    }
+  }
+
+  // Al final del recorrido, apagar LED por seguridad y detener loop
+  digitalWrite(LED_PIN, LOW);
+  Serial.println("Fin del recorrido. LED apagado.");
+  while (true); // Detener loop
+}
+
+// put function definitions here:
+int myFunction(int x, int y) {
+  return x + y;
+}

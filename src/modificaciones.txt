@@ -1,0 +1,39 @@
+Eliminar #include <wtypes.h> de:
+- dibujable.h
+- lunar_lander.h
+
+Eliminar #include <windows.h> de:
+- partida.h
+- menu_opciones.h
+
+Modificar:
+- dibujar_dibujable() de dibujable.h/c
+- DrawLine() de dibujable.c
+- SetPixel() de dibujable.c
+- iniciar_partida() de lunar_lander.h/c
+- pintar_pantalla() de lunar_lander.h/c
+- dibujar_escena() de partida.h/c
+- dibujar_superficie_lunar() de terreno.h/c
+- dibujar_plataformas() de terreno.h/c
+- DrawLine2() de terreno.h/c
+- dibujar_arista_terreno() de terreno.h/c
+- dibujar_hasta_primer_punto_fuera() de terreno.h/c
+- dibujar_desde_primer_punto_fuera() de terreno.h/c
+- dibujar_plataforma() de gestor_plataformas.h/c
+- dibujar_palabra() de palabra.h/c
+- dibujar_fragmentos() de fragmentacion_nave.h/c
+
+quitar HDC y referencia a color, y cosas de menus
+
+Eliminado ficheros:
+- menu_opciones.h/c
+
+Eliminado PlaySound()
+
+he de cambiar el algoritmo de drawline de deibujable.c ya que no se estan utilizando pixeles
+podrian explicar como funciona el algoritmo?
+
+8 bits sera lo maximo que necesitemos de precisión en cuanto al dibujo, podemos intentarlo con más
+ram llega a 82% con terreno + nave
+
+IMPORTANTE no llamar a parametros PORTB o PORTD
