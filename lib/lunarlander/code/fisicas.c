@@ -73,9 +73,6 @@ void propulsar(void){
 			break;
 		default:{
 			propulsor++;
-			if(modo_ia_activado) {
-				propulsor++;
-			}
 			break;
 		}
 	}

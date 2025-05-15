@@ -3,16 +3,12 @@
 
 #include <stdint.h>
 
-
-extern float tam_ventana_x;
-extern float tam_ventana_y;
 extern float factor_escalado; 
 
 // Valor de la aceleración gravitatoria en m/ms² (negativa por ser hacia abajo).
 extern float gravedad_m_ms;
 extern int friccion_atmosfera_activada;
 
-extern int modo_ia_activado;
 extern int partida_empezada;
 
 /**

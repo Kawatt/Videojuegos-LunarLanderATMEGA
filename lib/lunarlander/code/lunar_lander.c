@@ -39,12 +39,6 @@ void manejar_teclas(){
     if(estado_teclas[DERECHA]){
         girar_derecha();
     }
-
-    if(modo_ia_activado) {
-        estado_teclas[IZQUIERDA] = 0;
-        estado_teclas[DERECHA] = 0;
-        estado_teclas[ARRIBA] = 0;
-    }
 }
 
 void manejar_instante(){
