@@ -23,8 +23,6 @@ void manejar_instante_partida();
 
 void inicializar_partida();
 
-void anyadirMoneda();
-
 void insertar_monedas(int monedas);
 
 void comenzarPartida();

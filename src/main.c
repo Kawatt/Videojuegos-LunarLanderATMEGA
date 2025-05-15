@@ -116,7 +116,6 @@ int main() {
                     break;
                 }
                 case ESTADO_ATERRIZAJE: {
-                    //pulsar_tecla(MONEDA);
                     if(combustible < combustible_motor) {
                         generar_mensaje_final_partida(puntuacion_partida);
                         estado_actual = ESTADO_FIN_PARTIDA;

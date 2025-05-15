@@ -16,9 +16,6 @@ static int estado_teclas[5] = {
 
 void pulsar_tecla(int tecla){
     estado_teclas[tecla] = 1;
-    if(tecla == MONEDA) {
-        anyadirMoneda();
-    }
 }
 
 void levantar_tecla(int tecla){
