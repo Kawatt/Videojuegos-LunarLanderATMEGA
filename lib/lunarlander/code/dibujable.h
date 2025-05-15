@@ -19,7 +19,7 @@
  * @param y Coordenada y del punto
  */
 struct Punto{
-    float x, y;
+    uint8_t x, y;
 };
 
 /**

@@ -16,7 +16,7 @@
 // Palabras para las variables mostradas por cabecera
 struct Palabra* score = {0};
 struct Palabra* score_valor = {0};
-struct Palabra* time = {0};
+struct Palabra* tiempo = {0};
 struct Palabra* time_valor = {0};
 struct Palabra* fuel = {0};
 struct Palabra* fuel_valor = {0};
@@ -99,7 +99,7 @@ void inicializar_cabecera(void) {
 	float origen_y = 30;
 	score = crear_palabra_desde_cadena("P", (struct Punto) {origen_x_izda, origen_y});
 	score_valor = crear_palabra_desde_cadena("0000", (struct Punto) {origen_x_izda_valores, origen_y});
-	time = crear_palabra_desde_cadena("T", (struct Punto) {origen_x_izda, origen_y + separacion_altura});
+	tiempo = crear_palabra_desde_cadena("T", (struct Punto) {origen_x_izda, origen_y + separacion_altura});
 	time_valor = crear_palabra_desde_cadena("00:00", (struct Punto) {origen_x_izda_valores, origen_y + separacion_altura});
 	fuel = crear_palabra_desde_cadena("C", (struct Punto) {origen_x_izda, origen_y + separacion_altura * 2});
 	if(combustible < 10000) {
@@ -127,7 +127,7 @@ void dibujar_cabecera(){
 	actualizar_dibujables();
 	dibujar_palabra(score);
 	dibujar_palabra(score_valor);
-	dibujar_palabra(time);
+	dibujar_palabra(tiempo);
 	dibujar_palabra(time_valor);
 	dibujar_palabra(fuel);
 	dibujar_palabra(fuel_valor);
