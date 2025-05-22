@@ -245,6 +245,13 @@ void rotar_nave(uint8_t direccion){
 	rotarDibujable(motor_fuerte, direccion);
 }
 
+void rotar_nave_ang(int angulo){
+	rotarDibujableAng(nave -> objeto, angulo);
+	rotarDibujableAng(motor_debil, angulo);
+	rotarDibujableAng(motor_medio, angulo);
+	rotarDibujableAng(motor_fuerte, angulo);
+}
+
 // Traslacion del dibujable de la nave teniendo en cuenta el marco de desplazamiento
 struct Punto gestionar_posicion_nave_marcos(struct Punto traslacion_fisicas, struct Punto posicion_provisional_tras_fisicas) {
 	struct Punto punto_return = traslacion_fisicas;

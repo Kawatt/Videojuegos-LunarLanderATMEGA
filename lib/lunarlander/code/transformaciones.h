@@ -47,6 +47,15 @@ void colocarDibujable(struct Dibujable* dibujable, struct Punto destino);
 void rotarDibujable(struct Dibujable* dibujable, unsigned char direccion);
 
 /**
+ * @brief Rota un dibujable en sentido horario o antihorario
+ * 
+ * @param dibujable Dibujable a rotar
+ * @param direccion 0 para izquierda, 1 para derecha
+ * @param angulo angulo con el que rotar
+ */
+void rotarDibujableAng(struct Dibujable* dibujable, int angulo);
+
+/**
  * @brief Escala un dibujable en el eje x e y
  * 
  * @param dibujable Dibujable a escalar

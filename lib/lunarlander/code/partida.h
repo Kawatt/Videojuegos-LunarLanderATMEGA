@@ -18,6 +18,7 @@ extern int combustible;
 void dibujar_escena();
 
 void rotar_nave(uint8_t direccion);
+void rotar_nave_ang(int angulo);
 
 void manejar_instante_partida();
 

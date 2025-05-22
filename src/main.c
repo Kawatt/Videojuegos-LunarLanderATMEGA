@@ -26,6 +26,8 @@ unsigned long tickAnterior = 0;
 const unsigned long intervalo = 1000;
 
 unsigned int ADoutTemp;
+unsigned int antAngle;
+unsigned int newAngle;
 
 // VARIABLES MAQUINA ESTADOS JUEGO
 uint8_t monedas_introducidas = 0;
@@ -137,9 +139,14 @@ int main() {
         }
         if (estado_actual == ESTADO_JUEGO) {
             if ((ADCSRA & _BV(ADSC)) == 0) {	// If ADC conversion has finished
-                ADoutTemp = ADCW;			// Read out ADC value	
+                ADoutTemp = ADCW;			// Read out ADC value
+
+
                 
-                //Langle = ADoutTemp >> 4; //ADoutTemp >> 2;
+                newAngle = ADoutTemp >> 4; //ADoutTemp >> 2;
+                
+                nave -> rotacion = (newAngle + 360) % 360;
+                rotar_nave_ang(newAngle);
 
                 // 64 angles allowed
                 

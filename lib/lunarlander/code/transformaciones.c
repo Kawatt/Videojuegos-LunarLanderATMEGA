@@ -71,11 +71,42 @@ void rotarPuntoDadoCentro(struct Punto* punto, struct Punto centro, int8_t senti
     punto->y = (nuevaY + centro.y);
 }
 
+/**
+ * @brief Rota un punto dado un centro y un sentido
+ * 
+ * @param punto Punto a rotar
+ * @param centro Centro de rotación
+ * @param sentido 1 para horario, -1 para antihorario
+ */
+void rotarPuntoDadoCentroAngulo(struct Punto* punto, struct Punto centro, int8_t sentido, int angulo){
+    float x = punto->x - centro.x;
+    float y = punto->y - centro.y;
+    float nuevaX, nuevaY;
+
+    nuevaX = x * COS_TABLA[angulo] - y * sentido * SIN_TABLA[angulo];
+    nuevaY = x * sentido * SIN_TABLA[angulo] + y * COS_TABLA[angulo];
+    
+    punto->x = (nuevaX + centro.x);
+    punto->y = (nuevaY + centro.y);
+}
+
 void rotarDibujable(struct Dibujable* dibujable, unsigned char direccion){
     if (!dibujable->puntos) return;
     int8_t sentido = (direccion == 0) ? -1 : 1;
     for(uint8_t i = 0; i < dibujable->num_puntos; i++){
         rotarPuntoDadoCentro(&dibujable->puntos[i], dibujable->origen, sentido);
+    }
+}
+
+void rotarDibujableAng(struct Dibujable* dibujable, int angulo){
+    if (!dibujable->puntos) return;
+    int8_t sentido = 1;
+    if (angulo < 0) {
+        angulo = -angulo;
+        sentido = -1;
+    }
+    for(uint8_t i = 0; i < dibujable->num_puntos; i++){
+        rotarPuntoDadoCentroAngulo(&dibujable->puntos[i], dibujable->origen, sentido, angulo);
     }
 }
 
